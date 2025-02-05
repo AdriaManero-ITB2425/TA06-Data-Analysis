@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Data Analysis Results</h1>
+
+    <h2>Total and Mean Precipitation Over Years</h2>
+    <canvas id="totalMeanChart"></canvas>
+
+    <h2>Top 5 Driest and Wettest Years</h2>
+    <canvas id="top5Chart"></canvas>
+
+    <h2>Percentage Change of Total Precipitation Over Years</h2>
+    <canvas id="pctChangeChart"></canvas>
+
+    <script>
+        async function fetchData(url) {
+            const response = await fetch(url);
+            return response.json();
+        }
+
+        async function renderCharts() {
+            const meanResults = await fetchData('mean_results.json');
+            const top5Driest = await fetchData('top_5_driest.json');
+            const top5Wettest = await fetchData('top_5_wettest.json');
+
+            // Total and Mean Precipitation Over Years
+            const totalMeanCtx = document.getElementById('totalMeanChart').getContext('2d');
+            new Chart(totalMeanCtx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(meanResults.TotalPrecip),
+                    datasets: [
+                        {
+                            label: 'Total Precipitation',
+                            data: Object.values(meanResults.TotalPrecip),
+                            backgroundColor: 'blue'
+                        },
+                        {
+                            label: 'Mean Precipitation',
+                            data: Object.values(meanResults.Mean),
+                            backgroundColor: 'green'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: { title: { display: true, text: 'Year' } },
+                        y: { title: { display: true, text: 'Precipitation (l/m²)' } }
+                    }
+                }
+            });
+
+            // Top 5 Driest and Wettest Years
+            const top5Ctx = document.getElementById('top5Chart').getContext('2d');
+            const top5Years = [...Object.keys(top5Driest.TotalPrecip), ...Object.keys(top5Wettest.TotalPrecip)];
+            const top5Values = [...Object.values(top5Driest.TotalPrecip), ...Object.values(top5Wettest.TotalPrecip)];
+            const top5Colors = Array(Object.keys(top5Driest.TotalPrecip).length).fill('brown').concat(
+                Array(Object.keys(top5Wettest.TotalPrecip).length).fill('blue')
+            );
+            new Chart(top5Ctx, {
+                type: 'bar',
+                data: {
+                    labels: top5Years,
+                    datasets: [{
+                        label: 'Total Precipitation',
+                        data: top5Values,
+                        backgroundColor: top5Colors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: { title: { display: true, text: 'Year' } },
+                        y: { title: { display: true, text: 'Total Precipitation (l/m²)' } }
+                    }
+                }
+            });
+
+            // Percentage Change of Total Precipitation Over Years
+            const pctChangeCtx = document.getElementById('pctChangeChart').getContext('2d');
+            new Chart(pctChangeCtx, {
+                type: 'line',
+                data: {
+                    labels: Object.keys(meanResults.PctChange),
+                    datasets: [{
+                        label: 'Percentage Change',
+                        data: Object.values(meanResults.PctChange),
+                        borderColor: 'red',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: { title: { display: true, text: 'Year' } },
+                        y: { title: { display: true, text: 'Percentage Change (%)' } }
+                    }
+                }
+            });
+        }
+
+        renderCharts();
+    </script>
+</body>
+</html>

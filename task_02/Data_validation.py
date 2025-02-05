@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 # Configure the logging
 logging.basicConfig(
-    filename='app.log',
+    filename='error.log',
     filemode='a',
     format='%(asctime)s - %(levelname)s - %(message)s - module:%(module)s, function:%(funcName)s',
     datefmt='%Y-%m-%d %H:%M:%S',
@@ -50,7 +50,7 @@ def validate_integers_with_logging(df, filename):
                 )
 
 
-directory = "./DataSample"
+directory = "../DataSample"
 target_string = "precip\tMIROC5\tRCP60\tREGRESION\tdecimas\t1"
 
 files = [f for f in os.listdir(directory) if f.endswith(".dat")]
@@ -71,3 +71,5 @@ for filename in tqdm(files, desc="Processing files in directory"):
 
     # Validate integer values in the DataFrame.
     validate_integers_with_logging(df, filename)
+
+
