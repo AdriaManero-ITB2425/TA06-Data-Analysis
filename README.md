@@ -6,8 +6,6 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-![Project Visualization](task_02/charts&graphs/my_plot1.png)
-
 ---
 
 *In the face of urgent challenges such as climate change, loss of biodiversity,  resource constraints, emerging micropollutants or waste of water. For instance,  cities need to improve or reinvent urban services.
@@ -27,6 +25,8 @@ It is for this reason that we set ourselves the challenge of processing the data
 4. [Publicación de datos](#4-publicacion-de-datos)  
 5. [Reflexión](#5-reflexion)  
 6. [Referencias](#6-referencias)  
+
+## [Website](./task_04/index.html)
 
 ---
 
@@ -513,7 +513,7 @@ Este es el bloque de codigo que exporta los datos a JSON.
 
 Para publicar los datos, hemos creado una pagina web con HTML, CSS y JavaScript.
 
-[Data Analysis Website](https://adriangonzalez.github.io/TA06-Climate-Data-Analysis-Project/)
+[Data Analysis Website](./task_04/index.html)
 
 # 5. Reflexion
 
