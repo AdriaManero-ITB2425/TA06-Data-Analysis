@@ -26,7 +26,7 @@ It is for this reason that we set ourselves the challenge of processing the data
 5. [Reflexión](#5-reflexion)  
 6. [Referencias](#6-referencias)  
 
-## [Website](./task_04/index.html)
+## [Website](https://adriamanero-itb2425.github.io/TA06-Data-Analysis/task_04/index.html)
 
 ---
 
@@ -513,16 +513,16 @@ Este es el bloque de codigo que exporta los datos a JSON.
 
 Para publicar los datos, hemos creado una pagina web con HTML, CSS y JavaScript.
 
-[Data Analysis Website](./task_04/index.html)
+[Data Analysis Website](https://adriamanero-itb2425.github.io/TA06-Data-Analysis/task_04/index.html)
 
 # 5. Reflexion
 
-| Persona             | Què he après?                                                                                      | Nivell |
-|---------------------|---------------------------------------------------------------------------------------------------|--------|
-| **Sharam Khan.**    | **Trabajo en equipo**: He aprendido a obtener y procesar datos de forma más eficiente con Python. También he mejorado en la creación de gráficos y en presentar la información de manera clara y visual en una web.                                          | 🟢 Mucho |
-| **Sergio Lopez**    | **Procesamiento de datos**, He aprendido a obtener datos de la AEMET con Python, verificar que el formato sea correcto y corregir errores. También he aprendido a hacer estadísticas, gráficos y a presentar todo de forma atractiva en una web.                                        | 🟢 Mucho |
-| **Adriàn Gonzalez** | **HTML y CSS**, He aprendido a utilizar correctamente la librería pandas para leer archivos CSV y extraer información de ellos haciendo un script con Python. También he mejorado mi comprensión de Python, siendo capaz de modificar a mi gusto el código que me proporciona ChatGPT.                                   | 🟢 Mucho |
-| **Adrià Manero**    | **Procesamiento de datos**: He aprendido a manipular ficheros CSV con python                             | 🟢 Mucho |
+| Persona             | Què he après?                                                                                                                                                                                                                                                                          | Nivell |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
+| **Sharam Khan.**    | **Trabajo en equipo**: He aprendido a obtener y procesar datos de forma más eficiente con Python. También he mejorado en la creación de gráficos y en presentar la información de manera clara y visual en una web.                                                                    | 🟢 Mucho |
+| **Sergio Lopez**    | **Procesamiento de datos**, He aprendido a obtener datos de la AEMET con Python, verificar que el formato sea correcto y corregir errores. También he aprendido a hacer estadísticas, gráficos y a presentar todo de forma atractiva en una web.                                       | 🟢 Mucho |
+| **Adriàn Gonzalez** | **HTML y CSS**, He aprendido a utilizar correctamente la librería pandas para leer archivos CSV y extraer información de ellos haciendo un script con Python. También he mejorado mi comprensión de Python, siendo capaz de modificar a mi gusto el código que me proporciona ChatGPT. | 🟢 Mucho |
+| **Adrià Manero**    | **Procesamiento de datos**: He aprendido a analizar y procesar datos con la herramienta de pandas, y a visualizar-los con matplotlib y chart.js                                                                                                                                        | 🟢 Mucho |
 
 
 
