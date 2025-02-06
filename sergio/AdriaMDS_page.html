@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 1fr;
+            height: 100vh;
+            gap: 10px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: #3a3a3a;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container:hover {
+            background-color: #4a4a4a;
+            transform: scale(1.02);
+        }
+
+        .left,
+        .middle,
+        .right {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            height: 99%;
+        }
+
+        .left .container:first-child {
+            height: 10%;
+            background-color: #2c2c2c;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .left .container:not(:first-child),
+        .middle .container {
+            flex: 1;
+        }
+
+        .right .container:first-child {
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #3a3a3a;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: rgba(58, 58, 58, 0.9);
+            color: #fff;
+            transition: right 0.3s ease;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .menu.active {
+            right: 0;
+        }
+
+        .menu h2 {
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px;
+            background-color: #444;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .search-container .search-icon {
+            position: absolute;
+            right: 20px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .menu button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .menu button:hover {
+            background-color: #666;
+        }
+
+        .left .title {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #2c2c2c;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #yearInfo {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #2c2c2c;
+            padding: 10px;
+            border-radius: 10px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="left">
+        <div class="container">ESPAÑA</div>
+        <div class="title">Total datos procesados</div>
+        <div class="container"></div>
+        <div class="title">Años más lluviosos</div>
+        <div class="container"></div>
+        <div class="title">Años más secos</div>
+        <div class="container"></div>
+    </div>
+    <div class="middle">
+        <div class="container">
+            <canvas id="totalMeanChart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="top5Chart"></canvas>
+        </div>
+        <div class="container">
+            <canvas id="pctChangeChart"></canvas>
+        </div>
+    </div>
+    <div class="right">
+        <div class="container" onclick="toggleMenu()">¿Qué año prefieres?</div>
+        <div id="yearInfo" class="container"></div> <!-- Aquí se mostrará la información del año -->
+    </div>
+
+    <div class="menu" id="menu">
+        <h2>Elige un año:</h2>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar año..." oninput="filterYears()">
+            <span class="search-icon">&#128269;</span>
+        </div>
+
+        <div id="yearButtonsContainer"></div>
+    </div>
+
+    <script>
+        async function fetchData(url) {
+            const response = await fetch(url);
+            return response.json();
+        }
+
+        async function renderCharts() {
+            const meanResults = await fetchData('mean_results.json');
+            const top5Driest = await fetchData('top_5_driest.json');
+            const top5Wettest = await fetchData('top_5_wettest.json');
+
+            // Total and Mean Precipitation Over Years
+            const totalMeanCtx = document.getElementById('totalMeanChart').getContext('2d');
+            new Chart(totalMeanCtx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(meanResults.TotalPrecip),
+                    datasets: [
+                        {
+                            label: 'Total Precipitation',
+                            data: Object.values(meanResults.TotalPrecip),
+                            backgroundColor: 'blue'
+                        },
+                        {
+                            label: 'Mean Precipitation',
+                            data: Object.values(meanResults.Mean),
+                            backgroundColor: 'green'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: { title: { display: true, text: 'Year' } },
+                        y: { title: { display: true, text: 'Precipitation (l/m²)' } }
+                    }
+                }
+            });
+
+            // Top 5 Driest and Wettest Years
+            const top5Ctx = document.getElementById('top5Chart').getContext('2d');
+            const top5Years = [...Object.keys(top5Driest.TotalPrecip), ...Object.keys(top5Wettest.TotalPrecip)];
+            const top5Values = [...Object.values(top5Driest.TotalPrecip), ...Object.values(top5Wettest.TotalPrecip)];
+            const top5Colors = Array(Object.keys(top5Driest.TotalPrecip).length).fill('brown').concat(
+                Array(Object.keys(top5Wettest.TotalPrecip).length).fill('blue')
+            );
+            new Chart(top5Ctx, {
+                type: 'bar',
+                data: {
+                    labels: top5Years,
+                    datasets: [{
+                        label: 'Total Precipitation',
+                        data: top5Values,
+                        backgroundColor: top5Colors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: { title: { display: true, text: 'Year' } },
+                        y: { title: { display: true, text: 'Total Precipitation (l/m²)' } }
+                    }
+                }
+            });
+
+            // Percentage Change of Total Precipitation Over Years
+            const pctChangeCtx = document.getElementById('pctChangeChart').getContext('2d');
+            new Chart(pctChangeCtx, {
+                type: 'line',
+                data: {
+                    labels: Object.keys(meanResults.PctChange),
+                    datasets: [{
+                        label: 'Percentage Change',
+                        data: Object.values(meanResults.PctChange),
+                        borderColor: 'red',
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: { title: { display: true, text: 'Year' } },
+                        y: { title: { display: true, text: 'Percentage Change (%)' } }
+                    }
+                }
+            });
+        }
+
+        renderCharts();
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+
+        async function selectYear(year) {
+            const yearData = {
+                2006: { mean: 2.5051546391752577, totalPrecip: 897.8020618556701, pctChange: '' },
+                2007: { mean: 1.288659793814433, totalPrecip: 461.5556701030927, pctChange: -48.59048673277696 },
+                2008: { mean: 1.402061855670103, totalPrecip: 503.3474226804126, pctChange: 9.054542124460374 },
+                2009: { mean: 1.2783505154639174, totalPrecip: 459.32164948453607, pctChange: -8.746597521336575 },
+                2010: { mean: 0.8865979381443299, totalPrecip: 320.8752577319587, pctChange: -30.141490588990504 },
+                2011: { mean: 1.2577319587628866, totalPrecip: 450.2855670103093, pctChange: 40.33041070011474 },
+                2012: { mean: 1.2989690721649485, totalPrecip: 468.74536082474253, pctChange: 4.099574840250342 },
+                2013: { mean: 1.8041237113402062, totalPrecip: 648.3072164948454, pctChange: 38.306908329539425 },
+                2014: { mean: 1.5876288659793814, totalPrecip: 568.8659793814435, pctChange: -12.253640726523296 },
+                2015: { mean: 1.4329896907216495, totalPrecip: 515.5051546391751, pctChange: -9.380210221094654 },
+                2016: { mean: 2.154639175257732, totalPrecip: 773.5443298969074, pctChange: 50.05559555235588 },
+                2017: { mean: 1.5051546391752577, totalPrecip: 539.080412371134, pctChange: -30.310340140043568 },
+                2018: { mean: 1.5051546391752577, totalPrecip: 540.2164948453608, pctChange: 0.21074452867426707 },
+                2019: { mean: 2.536082474226804, totalPrecip: 909.1690721649485, pctChange: 68.29716990133778 },
+                2020: { mean: 1.8865979381443299, totalPrecip: 678.0639175257731, pctChange: -25.419381467614034 },
+                2021: { mean: 1.309278350515464, totalPrecip: 470.598969072165, pctChange: -30.596665460483297 },
+                2022: { mean: 2.5876288659793816, totalPrecip: 927.5989690721646, pctChange: 97.11028498447898 },
+                2023: { mean: 0.8041237113402062, totalPrecip: 288.06597938144336, pctChange: -68.94498711338773 },
+                2024: { mean: 1.268041237113402, totalPrecip: 455.7020618556701, pctChange: 58.19364120476405 },
+                2025: { mean: 1.288659793814433, totalPrecip: 461.69381443298994, pctChange: 1.3148399094181862 },
+                2026: { mean: 1.5463917525773196, totalPrecip: 554.0865979381446, pctChange: 20.011700528980004 },
+                2027: { mean: 2.3711340206185567, totalPrecip: 849.0237113402061, pctChange: 53.22942559873769 },
+                2028: { mean: 0.9072164948453608, totalPrecip: 328.3237113402062, pctChange: -61.32926478320155 },
+                2029: { mean: 1.1237113402061856, totalPrecip: 404.99793814432985, pctChange: 23.35324076690717 },
+                2030: { mean: 1.9793814432989691, totalPrecip: 710.9422680412372, pctChange: 75.54219443652511 },
+                2031: { mean: 1.7010309278350515, totalPrecip: 610.1762886597938, pctChange: -14.173581162795424 },
+                2032: { mean: 1.8556701030927836, totalPrecip: 666.2185567010309, pctChange: 9.184602725931823 },
+                2033: { mean: 1.8144329896907216, totalPrecip: 652.4175257731958, pctChange: -2.071547060498402 },
+                2034: { mean: 1.175257731958763, totalPrecip: 423.4309278350517, pctChange: -35.09816779780196 },
+                2035: { mean: 0.979381443298969, totalPrecip: 351.3216494845362, pctChange: -17.02976178882375 },
+                2036: { mean: 1.577319587628866, totalPrecip: 567.9824742268041, pctChange: 61.670217323684895 },
+                2037: { mean: 1.7938144329896908, totalPrecip: 643.881443298969, pctChange: 13.362906870583679 },
+                2038: { mean: 1.1134020618556701, totalPrecip: 400.58865979381426, pctChange: -37.7853385956626 },
+                2039: { mean: 1.865979381443299, totalPrecip: 671.0680412371132, pctChange: 67.52047888288115 },
+                2040: { mean: 1.4329896907216495, totalPrecip: 515.020618556701, pctChange: -23.253591750955525 },
+                2041: { mean: 1.2164948453608246, totalPrecip: 437.0639175257731, pctChange: -15.136617491042315 },
+                2042: { mean: 1.2783505154639174, totalPrecip: 458.29484536082464, pctChange: 4.857625391553766 },
+                2043: { mean: 1.6597938144329898, totalPrecip: 596.6886597938143, pctChange: 30.19754985985701 },
+                2044: { mean: 1.3711340206185567, totalPrecip: 492.66907216494815, pctChange: -17.43280786747482 },
+                2045: { mean: 1.4742268041237114, totalPrecip: 529.1525773195876, pctChange: 7.405276120605486 },
+                2046: { mean: 1.577319587628866, totalPrecip: 567.2824742268039, pctChange: 7.20584166864735 },
+                2047: { mean: 1.4536082474226804, totalPrecip: 522.1546391752578, pctChange: -7.955090647398288 },
+                2048: { mean: 1.2989690721649485, totalPrecip: 469.8515463917525, pctChange: -10.01678216746631 },
+                2049: { mean: 1.9381443298969072, totalPrecip: 696.0731958762888, pctChange: 48.14747364818022 },
+                2050: { mean: 1.2577319587628866, totalPrecip: 453.4432989690719, pctChange: -34.85695158851352 },
+                2051: { mean: 1.3711340206185567, totalPrecip: 492.3453608247422, pctChange: 8.57925609312482 },
+                2052: { mean: 0.7835051546391752, totalPrecip: 282.32783505154663, pctChange: -42.656546092236766 },
+                2053: { mean: 1.3402061855670102, totalPrecip: 483.18144329896893, pctChange: 71.1419786896857 },
+                2054: { mean: 1.8865979381443299, totalPrecip: 677.3288659793817, pctChange: 40.18105938730845 },
+                2055: { mean: 1.0206185567010309, totalPrecip: 368.9072164948454, pctChange: -45.534992671333285 },
+                2056: { mean: 1.7628865979381443, totalPrecip: 633.417525773196, pctChange: 71.70103957075789 },
+                2057: { mean: 1.5257731958762886, totalPrecip: 546.672164948454, pctChange: -13.694815393504346 },
+                2058: { mean: 1.1649484536082475, totalPrecip: 418.5072164948452, pctChange: -23.444571842375318 },
+                2059: { mean: 0.9381443298969072, totalPrecip: 337.780412371134, pctChange: -19.289226312470408 },
+                2060: { mean: 1.175257731958763, totalPrecip: 423.39690721649487, pctChange: 25.346790906066595 },
+                2061: { mean: 1.1546391752577319, totalPrecip: 416.8865979381441, pctChange: -1.5376374194962739 },
+                2062: { mean: 1.0515463917525774, totalPrecip: 379.2020618556699, pctChange: -9.039517285721354 },
+                2063: { mean: 1.6701030927835052, totalPrecip: 598.3649484536082, pctChange: 57.79580562548603 },
+                2064: { mean: 1.0206185567010309, totalPrecip: 369.4268041237115, pctChange: -38.26062086717409 },
+                2065: { mean: 1.4948453608247423, totalPrecip: 535.3, pctChange: 44.90015180943443 },
+                2066: { mean: 1.309278350515464, totalPrecip: 471.75567010309294, pctChange: -11.870788323726323 },
+                2067: { mean: 1.5876288659793814, totalPrecip: 569.3865979381446, pctChange: 20.695231456087516 },
+                2068: { mean: 1.092783505154639, totalPrecip: 393.1216494845359, pctChange: -30.95698934465565 },
+                2069: { mean: 1.0, totalPrecip: 360.26804123711355, pctChange: -8.350223547301715 },
+                2070: { mean: 1.5670103092783505, totalPrecip: 563.39381443299, pctChange: 56.38184627711327 },
+                2071: { mean: 1.958762886597938, totalPrecip: 704.6597938144333, pctChange: 25.074109044597172 },
+                2072: { mean: 0.7525773195876289, totalPrecip: 270.37835051546386, pctChange: -61.62994499063673 },
+                2073: { mean: 1.6494845360824741, totalPrecip: 592.6680412371132, pctChange: 119.19951804840103 },
+                2074: { mean: 1.2474226804123711, totalPrecip: 449.7432989690721, pctChange: -24.115479884777546 },
+                2075: { mean: 1.5670103092783505, totalPrecip: 561.6597938144329, pctChange: 24.884527485323815 },
+                2076: { mean: 0.6391752577319587, totalPrecip: 232.82371134020624, pctChange: -58.547199941263905 },
+                2077: { mean: 1.1855670103092784, totalPrecip: 427.9876288659795, pctChange: 83.82476011672033 },
+                2078: { mean: 1.7628865979381443, totalPrecip: 633.416494845361, pctChange: 47.998785975122104 },
+                2079: { mean: 0.5463917525773195, totalPrecip: 197.69175257731965, pctChange: -68.78961091381382 },
+                2080: { mean: 1.3917525773195876, totalPrecip: 502.3350515463919, pctChange: 154.10015592325865 },
+                2081: { mean: 2.082474226804124, totalPrecip: 745.6092783505154, pctChange: 48.42867843986325 },
+                2082: { mean: 0.9278350515463918, totalPrecip: 333.3855670103093, pctChange: -55.28682693597293 },
+                2083: { mean: 1.8350515463917525, totalPrecip: 660.2309278350516, pctChange: 98.03824555327414 },
+                2084: { mean: 1.1855670103092784, totalPrecip: 427.3783505154638, pctChange: -35.26835346582891 },
+                2085: { mean: 1.1958762886597938, totalPrecip: 428.58556701030955, pctChange: 0.28247020313258986 },
+                2086: { mean: 0.9072164948453608, totalPrecip: 327.9319587628866, pctChange: -23.485067159296513 },
+                2087: { mean: 0.8144329896907216, totalPrecip: 293.5845360824742, pctChange: -10.473947952492047 },
+                2088: { mean: 1.1443298969072164, totalPrecip: 411.1659793814434, pctChange: 40.05028495981071 },
+                2089: { mean: 1.7938144329896908, totalPrecip: 642.8587628865982, pctChange: 56.35018341101874 },
+                2090: { mean: 1.309278350515464, totalPrecip: 470.77628865979364, pctChange: -26.76831742233875 },
+                2091: { mean: 1.0618556701030928, totalPrecip: 381.02886597938164, pctChange: -19.063709205895872 },
+                2092: { mean: 2.216494845360825, totalPrecip: 798.8072164948454, pctChange: 109.64480327274488 },
+                2093: { mean: 1.1546391752577319, totalPrecip: 414.12474226804125, pctChange: -48.15711053723142 },
+                2094: { mean: 1.3814432989690721, totalPrecip: 496.352577319588, pctChange: 19.85581315456033 },
+                2095: { mean: 1.2989690721649485, totalPrecip: 467.8979381443298, pctChange: -5.732747340392475 },
+                2096: { mean: 0.7835051546391752, totalPrecip: 284.10206185567, pctChange: -39.281189615322766 },
+                2097: { mean: 0.6185567010309279, totalPrecip: 223.20721649484545, pctChange: -21.434144111125963 },
+                2098: { mean: 0.8041237113402062, totalPrecip: 289.3886597938144, pctChange: 29.650225623640303 },
+                2099: { mean: 1.4639175257731958, totalPrecip: 524.779381443299, pctChange: 81.34068619592676 },
+                2100: { mean: 1.6494845360824741, totalPrecip: 592.0371134020618, pctChange: 12.81638233838076 }
+            };
+
+            const data = yearData[year];
+            const yearDetails = `
+            YEAR: ${year}
+            Mean: ${data.mean}
+            Total Precipitation: ${data.totalPrecip}
+            Percentage Change: ${data.pctChange !== '' ? data.pctChange : 'N/A'}
+        `;
+
+            document.getElementById('yearInfo').innerText = yearDetails;
+            toggleMenu();
+        }
+
+        function filterYears() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const buttons = document.querySelectorAll('#yearButtonsContainer button');
+            buttons.forEach(button => {
+                const year = button.dataset.year;
+                button.style.display = year.includes(searchTerm) ? 'block' : 'none';
+            });
+        }
+
+        const container = document.getElementById('yearButtonsContainer');
+        for (let year = 2006; year <= 2057; year++) {
+            const button = document.createElement('button');
+            button.classList.add('yearButton');
+            button.dataset.year = year;
+            button.textContent = year;
+            container.appendChild(button);
+            button.addEventListener('click', () => {
+                selectYear(year);
+            });
+        }
+    </script>
+</body>
+
+</html>
