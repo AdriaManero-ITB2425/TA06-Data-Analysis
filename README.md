@@ -518,10 +518,10 @@ Para publicar los datos, hemos creado una pagina web con HTML, CSS y JavaScript.
 
 | Persona             | Què he après?                                                                                      | Nivell |
 |---------------------|---------------------------------------------------------------------------------------------------|--------|
-| **Sharam Khan.**    | **Treball en grup**: he après a explicar les meves idees                                          | 🟠 Força |
-| **Sergio Lopez**    | **Treball en equip**, he après a consensuar la feina a fer                                        | 🟠 Força |
-| **Adriàn Gonzalez** | **HTML i CSS**, per fi he entès com crear una web i publicar-la                                   | 🟢 Molt |
-| **Adrià Manero**    | **Processament de dades**: he après com manipular fitxers molt grans                             | 🔴 Res |
+| **Sharam Khan.**    | **Trabajo en equipo**: He aprendido a obtener y procesar datos de forma más eficiente con Python. También he mejorado en la creación de gráficos y en presentar la información de manera clara y visual en una web.                                          | 🟢 Mucho |
+| **Sergio Lopez**    | **Procesamiento de datos**, He aprendido a obtener datos de la AEMET con Python, verificar que el formato sea correcto y corregir errores. También he aprendido a hacer estadísticas, gráficos y a presentar todo de forma atractiva en una web.                                        | 🟢 Mucho |
+| **Adriàn Gonzalez** | **HTML y CSS**, He aprendido a utilizar correctamente la librería pandas para leer archivos CSV y extraer información de ellos haciendo un script con Python. También he mejorado mi comprensión de Python, siendo capaz de modificar a mi gusto el código que me proporciona ChatGPT.                                   | 🟢 Mucho |
+| **Adrià Manero**    | **Procesamiento de datos**: He aprendido a manipular ficheros CSV con python                             | 🟢 Mucho |
 
 
 
