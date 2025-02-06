@@ -4,128 +4,128 @@
 =                                       =
 =========================================
 
-Date: 2025-02-06 08:09:53.952302
+Date: 2025-02-06 17:44:02.414633
 
 =========================================
-Total of files processed: 97
-Total of values processed: 3759720
-Total of null or empty values: 64505
+Total of files processed: 16064
+Total of values processed: 622640640
+Total of null or empty values: 10682560
 Percentage of null over total data: 1.72%
 =========================================
 
 ===== Top 5 Driest Years =====
 =========================================
-Year 2079: Total: 197.69 l/m², Mean: 2.04 l/m²
-Year 2097: Total: 223.21 l/m², Mean: 2.3 l/m²
-Year 2076: Total: 232.82 l/m², Mean: 2.4 l/m²
-Year 2072: Total: 270.38 l/m², Mean: 2.79 l/m²
-Year 2052: Total: 282.33 l/m², Mean: 2.91 l/m²
+Year 2079: Total: 227.99 l/m², Mean: 0.01 l/m²
+Year 2096: Total: 244.7 l/m², Mean: 0.02 l/m²
+Year 2097: Total: 246.81 l/m², Mean: 0.02 l/m²
+Year 2076: Total: 251.9 l/m², Mean: 0.02 l/m²
+Year 2087: Total: 278.22 l/m², Mean: 0.02 l/m²
 =========================================
 
 ===== Top 5 Wettest Years =====
 =========================================
-Year 2022: Total: 927.6 l/m², Mean: 9.56 l/m²
-Year 2019: Total: 909.17 l/m², Mean: 9.37 l/m²
-Year 2006: Total: 897.8 l/m², Mean: 9.26 l/m²
-Year 2027: Total: 849.02 l/m², Mean: 8.75 l/m²
-Year 2092: Total: 798.81 l/m², Mean: 8.24 l/m²
+Year 2022: Total: 532.04 l/m², Mean: 0.03 l/m²
+Year 2027: Total: 522.36 l/m², Mean: 0.03 l/m²
+Year 2006: Total: 508.29 l/m², Mean: 0.03 l/m²
+Year 2081: Total: 496.59 l/m², Mean: 0.03 l/m²
+Year 2092: Total: 493.41 l/m², Mean: 0.03 l/m²
 =========================================
 
 ===== Dataframe with total and mean =====
 =========================================
 
-Year 2006: Total: 87086.8 l/m², Mean: 897.8 l/m²
-Year 2007: Total: 44770.9 l/m², Mean: 461.56 l/m²
-Year 2008: Total: 48824.7 l/m², Mean: 503.35 l/m²
-Year 2009: Total: 44554.2 l/m², Mean: 459.32 l/m²
-Year 2010: Total: 31124.9 l/m², Mean: 320.88 l/m²
-Year 2011: Total: 43677.7 l/m², Mean: 450.29 l/m²
-Year 2012: Total: 45468.3 l/m², Mean: 468.75 l/m²
-Year 2013: Total: 62885.8 l/m², Mean: 648.31 l/m²
-Year 2014: Total: 55180.0 l/m², Mean: 568.87 l/m²
-Year 2015: Total: 50004.0 l/m², Mean: 515.51 l/m²
-Year 2016: Total: 75033.8 l/m², Mean: 773.54 l/m²
-Year 2017: Total: 52290.8 l/m², Mean: 539.08 l/m²
-Year 2018: Total: 52401.0 l/m², Mean: 540.22 l/m²
-Year 2019: Total: 88189.4 l/m², Mean: 909.17 l/m²
-Year 2020: Total: 65772.2 l/m², Mean: 678.06 l/m²
-Year 2021: Total: 45648.1 l/m², Mean: 470.6 l/m²
-Year 2022: Total: 89977.1 l/m², Mean: 927.6 l/m²
-Year 2023: Total: 27942.4 l/m², Mean: 288.07 l/m²
-Year 2024: Total: 44203.1 l/m², Mean: 455.7 l/m²
-Year 2025: Total: 44784.3 l/m², Mean: 461.69 l/m²
-Year 2026: Total: 53746.4 l/m², Mean: 554.09 l/m²
-Year 2027: Total: 82355.3 l/m², Mean: 849.02 l/m²
-Year 2028: Total: 31847.4 l/m², Mean: 328.32 l/m²
-Year 2029: Total: 39284.8 l/m², Mean: 405.0 l/m²
-Year 2030: Total: 68961.4 l/m², Mean: 710.94 l/m²
-Year 2031: Total: 59187.1 l/m², Mean: 610.18 l/m²
-Year 2032: Total: 64623.2 l/m², Mean: 666.22 l/m²
-Year 2033: Total: 63284.5 l/m², Mean: 652.42 l/m²
-Year 2034: Total: 41072.8 l/m², Mean: 423.43 l/m²
-Year 2035: Total: 34078.2 l/m², Mean: 351.32 l/m²
-Year 2036: Total: 55094.3 l/m², Mean: 567.98 l/m²
-Year 2037: Total: 62456.5 l/m², Mean: 643.88 l/m²
-Year 2038: Total: 38857.1 l/m², Mean: 400.59 l/m²
-Year 2039: Total: 65093.6 l/m², Mean: 671.07 l/m²
-Year 2040: Total: 49957.0 l/m², Mean: 515.02 l/m²
-Year 2041: Total: 42395.2 l/m², Mean: 437.06 l/m²
-Year 2042: Total: 44454.6 l/m², Mean: 458.29 l/m²
-Year 2043: Total: 57878.8 l/m², Mean: 596.69 l/m²
-Year 2044: Total: 47788.9 l/m², Mean: 492.67 l/m²
-Year 2045: Total: 51327.8 l/m², Mean: 529.15 l/m²
-Year 2046: Total: 55026.4 l/m², Mean: 567.28 l/m²
-Year 2047: Total: 50649.0 l/m², Mean: 522.15 l/m²
-Year 2048: Total: 45575.6 l/m², Mean: 469.85 l/m²
-Year 2049: Total: 67519.1 l/m², Mean: 696.07 l/m²
-Year 2050: Total: 43984.0 l/m², Mean: 453.44 l/m²
-Year 2051: Total: 47757.5 l/m², Mean: 492.35 l/m²
-Year 2052: Total: 27385.8 l/m², Mean: 282.33 l/m²
-Year 2053: Total: 46868.6 l/m², Mean: 483.18 l/m²
-Year 2054: Total: 65700.9 l/m², Mean: 677.33 l/m²
-Year 2055: Total: 35784.0 l/m², Mean: 368.91 l/m²
-Year 2056: Total: 61441.5 l/m², Mean: 633.42 l/m²
-Year 2057: Total: 53027.2 l/m², Mean: 546.67 l/m²
-Year 2058: Total: 40595.2 l/m², Mean: 418.51 l/m²
-Year 2059: Total: 32764.7 l/m², Mean: 337.78 l/m²
-Year 2060: Total: 41069.5 l/m², Mean: 423.4 l/m²
-Year 2061: Total: 40438.0 l/m², Mean: 416.89 l/m²
-Year 2062: Total: 36782.6 l/m², Mean: 379.2 l/m²
-Year 2063: Total: 58041.4 l/m², Mean: 598.36 l/m²
-Year 2064: Total: 35834.4 l/m², Mean: 369.43 l/m²
-Year 2065: Total: 51924.1 l/m², Mean: 535.3 l/m²
-Year 2066: Total: 45760.3 l/m², Mean: 471.76 l/m²
-Year 2067: Total: 55230.5 l/m², Mean: 569.39 l/m²
-Year 2068: Total: 38132.8 l/m², Mean: 393.12 l/m²
-Year 2069: Total: 34946.0 l/m², Mean: 360.27 l/m²
-Year 2070: Total: 54649.2 l/m², Mean: 563.39 l/m²
-Year 2071: Total: 68352.0 l/m², Mean: 704.66 l/m²
-Year 2072: Total: 26226.7 l/m², Mean: 270.38 l/m²
-Year 2073: Total: 57488.8 l/m², Mean: 592.67 l/m²
-Year 2074: Total: 43625.1 l/m², Mean: 449.74 l/m²
-Year 2075: Total: 54481.0 l/m², Mean: 561.66 l/m²
-Year 2076: Total: 22583.9 l/m², Mean: 232.82 l/m²
-Year 2077: Total: 41514.8 l/m², Mean: 427.99 l/m²
-Year 2078: Total: 61441.4 l/m², Mean: 633.42 l/m²
-Year 2079: Total: 19176.1 l/m², Mean: 197.69 l/m²
-Year 2080: Total: 48726.5 l/m², Mean: 502.34 l/m²
-Year 2081: Total: 72324.1 l/m², Mean: 745.61 l/m²
-Year 2082: Total: 32338.4 l/m², Mean: 333.39 l/m²
-Year 2083: Total: 64042.4 l/m², Mean: 660.23 l/m²
-Year 2084: Total: 41455.7 l/m², Mean: 427.38 l/m²
-Year 2085: Total: 41572.8 l/m², Mean: 428.59 l/m²
-Year 2086: Total: 31809.4 l/m², Mean: 327.93 l/m²
-Year 2087: Total: 28477.7 l/m², Mean: 293.58 l/m²
-Year 2088: Total: 39883.1 l/m², Mean: 411.17 l/m²
-Year 2089: Total: 62357.3 l/m², Mean: 642.86 l/m²
-Year 2090: Total: 45665.3 l/m², Mean: 470.78 l/m²
-Year 2091: Total: 36959.8 l/m², Mean: 381.03 l/m²
-Year 2092: Total: 77484.3 l/m², Mean: 798.81 l/m²
-Year 2093: Total: 40170.1 l/m², Mean: 414.12 l/m²
-Year 2094: Total: 48146.2 l/m², Mean: 496.35 l/m²
-Year 2095: Total: 45386.1 l/m², Mean: 467.9 l/m²
-Year 2096: Total: 27557.9 l/m², Mean: 284.1 l/m²
-Year 2097: Total: 21651.1 l/m², Mean: 223.21 l/m²
-Year 2098: Total: 28070.7 l/m², Mean: 289.39 l/m²
-Year 2099: Total: 50903.6 l/m², Mean: 524.78 l/m²
-Year 2100: Total: 57427.6 l/m², Mean: 592.04 l/m²
+Year 2006: Total: 8165227.9 l/m², Mean: 508.29 l/m²
+Year 2007: Total: 6227536.1 l/m², Mean: 387.67 l/m²
+Year 2008: Total: 6085316.3 l/m², Mean: 378.82 l/m²
+Year 2009: Total: 6206741.9 l/m², Mean: 386.38 l/m²
+Year 2010: Total: 4857139.2 l/m², Mean: 302.36 l/m²
+Year 2011: Total: 5846122.2 l/m², Mean: 363.93 l/m²
+Year 2012: Total: 5915863.6 l/m², Mean: 368.27 l/m²
+Year 2013: Total: 7085104.2 l/m², Mean: 441.05 l/m²
+Year 2014: Total: 6838310.0 l/m², Mean: 425.69 l/m²
+Year 2015: Total: 6072701.1 l/m², Mean: 378.03 l/m²
+Year 2016: Total: 7427567.4 l/m², Mean: 462.37 l/m²
+Year 2017: Total: 5976274.6 l/m², Mean: 372.03 l/m²
+Year 2018: Total: 6815171.9 l/m², Mean: 424.25 l/m²
+Year 2019: Total: 7048379.7 l/m², Mean: 438.77 l/m²
+Year 2020: Total: 6701674.8 l/m², Mean: 417.19 l/m²
+Year 2021: Total: 5946808.0 l/m², Mean: 370.19 l/m²
+Year 2022: Total: 8546745.6 l/m², Mean: 532.04 l/m²
+Year 2023: Total: 4763667.5 l/m², Mean: 296.54 l/m²
+Year 2024: Total: 5624221.6 l/m², Mean: 350.11 l/m²
+Year 2025: Total: 5675881.3 l/m², Mean: 353.33 l/m²
+Year 2026: Total: 6537947.8 l/m², Mean: 406.99 l/m²
+Year 2027: Total: 8391139.6 l/m², Mean: 522.36 l/m²
+Year 2028: Total: 5315384.4 l/m², Mean: 330.89 l/m²
+Year 2029: Total: 5652405.2 l/m², Mean: 351.87 l/m²
+Year 2030: Total: 7484074.4 l/m², Mean: 465.89 l/m²
+Year 2031: Total: 7411468.3 l/m², Mean: 461.37 l/m²
+Year 2032: Total: 7667633.4 l/m², Mean: 477.32 l/m²
+Year 2033: Total: 7095190.5 l/m², Mean: 441.68 l/m²
+Year 2034: Total: 5588595.6 l/m², Mean: 347.9 l/m²
+Year 2035: Total: 5698441.2 l/m², Mean: 354.73 l/m²
+Year 2036: Total: 6561419.6 l/m², Mean: 408.45 l/m²
+Year 2037: Total: 6460972.6 l/m², Mean: 402.2 l/m²
+Year 2038: Total: 5828001.2 l/m², Mean: 362.8 l/m²
+Year 2039: Total: 7885272.2 l/m², Mean: 490.87 l/m²
+Year 2040: Total: 6507192.6 l/m², Mean: 405.08 l/m²
+Year 2041: Total: 4913523.6 l/m², Mean: 305.87 l/m²
+Year 2042: Total: 6057796.9 l/m², Mean: 377.1 l/m²
+Year 2043: Total: 6679465.7 l/m², Mean: 415.8 l/m²
+Year 2044: Total: 5688048.9 l/m², Mean: 354.09 l/m²
+Year 2045: Total: 5850079.3 l/m², Mean: 364.17 l/m²
+Year 2046: Total: 6384137.8 l/m², Mean: 397.42 l/m²
+Year 2047: Total: 6349850.9 l/m², Mean: 395.28 l/m²
+Year 2048: Total: 6025120.8 l/m², Mean: 375.07 l/m²
+Year 2049: Total: 6779512.6 l/m², Mean: 422.03 l/m²
+Year 2050: Total: 6135496.8 l/m², Mean: 381.94 l/m²
+Year 2051: Total: 5654024.6 l/m², Mean: 351.97 l/m²
+Year 2052: Total: 5022774.2 l/m², Mean: 312.67 l/m²
+Year 2053: Total: 6265621.1 l/m², Mean: 390.04 l/m²
+Year 2054: Total: 7561890.9 l/m², Mean: 470.74 l/m²
+Year 2055: Total: 5772678.5 l/m², Mean: 359.35 l/m²
+Year 2056: Total: 7657859.4 l/m², Mean: 476.71 l/m²
+Year 2057: Total: 7029989.8 l/m², Mean: 437.62 l/m²
+Year 2058: Total: 5505130.8 l/m², Mean: 342.7 l/m²
+Year 2059: Total: 4851436.7 l/m², Mean: 302.01 l/m²
+Year 2060: Total: 5021673.3 l/m², Mean: 312.6 l/m²
+Year 2061: Total: 5297074.0 l/m², Mean: 329.75 l/m²
+Year 2062: Total: 5499614.2 l/m², Mean: 342.36 l/m²
+Year 2063: Total: 6118331.2 l/m², Mean: 380.87 l/m²
+Year 2064: Total: 5128852.2 l/m², Mean: 319.28 l/m²
+Year 2065: Total: 5646922.1 l/m², Mean: 351.53 l/m²
+Year 2066: Total: 6021765.7 l/m², Mean: 374.86 l/m²
+Year 2067: Total: 7278086.3 l/m², Mean: 453.07 l/m²
+Year 2068: Total: 5607528.1 l/m², Mean: 349.07 l/m²
+Year 2069: Total: 5132770.6 l/m², Mean: 319.52 l/m²
+Year 2070: Total: 6536859.5 l/m², Mean: 406.93 l/m²
+Year 2071: Total: 7390122.2 l/m², Mean: 460.04 l/m²
+Year 2072: Total: 4990309.0 l/m², Mean: 310.65 l/m²
+Year 2073: Total: 5601008.3 l/m², Mean: 348.67 l/m²
+Year 2074: Total: 5994029.9 l/m², Mean: 373.13 l/m²
+Year 2075: Total: 5853576.3 l/m², Mean: 364.39 l/m²
+Year 2076: Total: 4046508.0 l/m², Mean: 251.9 l/m²
+Year 2077: Total: 5680623.6 l/m², Mean: 353.62 l/m²
+Year 2078: Total: 6734339.7 l/m², Mean: 419.22 l/m²
+Year 2079: Total: 3662505.6 l/m², Mean: 227.99 l/m²
+Year 2080: Total: 6147967.9 l/m², Mean: 382.72 l/m²
+Year 2081: Total: 7977222.5 l/m², Mean: 496.59 l/m²
+Year 2082: Total: 5061784.1 l/m², Mean: 315.1 l/m²
+Year 2083: Total: 7581148.0 l/m², Mean: 471.93 l/m²
+Year 2084: Total: 5272804.5 l/m², Mean: 328.24 l/m²
+Year 2085: Total: 5900302.8 l/m², Mean: 367.3 l/m²
+Year 2086: Total: 4731255.2 l/m², Mean: 294.53 l/m²
+Year 2087: Total: 4469298.3 l/m², Mean: 278.22 l/m²
+Year 2088: Total: 4689127.8 l/m², Mean: 291.9 l/m²
+Year 2089: Total: 6274670.0 l/m², Mean: 390.6 l/m²
+Year 2090: Total: 6002565.9 l/m², Mean: 373.67 l/m²
+Year 2091: Total: 5046129.1 l/m², Mean: 314.13 l/m²
+Year 2092: Total: 7926120.2 l/m², Mean: 493.41 l/m²
+Year 2093: Total: 5250421.9 l/m², Mean: 326.84 l/m²
+Year 2094: Total: 5213850.8 l/m², Mean: 324.57 l/m²
+Year 2095: Total: 5535063.6 l/m², Mean: 344.56 l/m²
+Year 2096: Total: 3930914.5 l/m², Mean: 244.7 l/m²
+Year 2097: Total: 3964817.8 l/m², Mean: 246.81 l/m²
+Year 2098: Total: 4615414.5 l/m², Mean: 287.31 l/m²
+Year 2099: Total: 6218403.0 l/m², Mean: 387.1 l/m²
+Year 2100: Total: 6059878.6 l/m², Mean: 377.23 l/m²

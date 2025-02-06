@@ -1,0 +1,132 @@
+
+body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: #d3d4df;
+            margin: 0;
+            padding: 0;
+        }
+
+header {
+            text-align: center;
+            padding: 20px;
+            background-color: #28293e;
+            border-bottom: 1px solid #444;
+        }
+
+.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+.section {
+            margin-bottom: 40px;
+        }
+
+h2 {
+            color: #d3d4df;
+        }
+
+canvas {
+            background-color: #28293e;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+.data-summary {
+            background-color: #28293e;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
+        }
+
+.footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #28293e;
+            color: #888;
+            border-top: 1px solid #444;
+        }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #28293e;
+  color: #d3d4df;
+  border-radius: 8px;
+  overflow: hidden; /* For rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+thead {
+  background-color: #3a3b4f;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+tbody tr {
+  border-bottom: 1px solid #444;
+}
+
+tbody tr:hover {
+  background-color: #34354a;
+}
+
+tbody td {
+  padding: 10px;
+  text-align: left;
+  font-size: 0.9em;
+}
+
+tfoot {
+  background-color: #3a3b4f;
+}
+
+tfoot td {
+  text-align: right;
+  padding: 10px;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none; /* Hide header on small screens */
+  }
+
+  tbody tr {
+    margin-bottom: 15px;
+  }
+
+  tbody td {
+    text-align: right;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 50%;
+    text-align: left;
+    font-weight: bold;
+    color: #ccc;
+  }
+}
+

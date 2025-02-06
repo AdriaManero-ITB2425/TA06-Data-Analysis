@@ -23,7 +23,7 @@ def is_leap_year(year):
     return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
 
 # Ruta de la carpeta de los datos
-Folder_path = '../../DataSample'
+Folder_path = '../../precip.MIROC5.RCP60.2006-2100.SDSM_REJ'
 column_name = ['ID', 'YEAR', 'MONTH'] + [f'D{i}' for i in range(1, 32)]
 # Inicializar un DataFrame para almacenar los resultados agregados
 aggregated_results = pd.DataFrame()

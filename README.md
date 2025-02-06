@@ -1,5 +1,12 @@
-# TA06 - Data Analysis  
-**Data analysis with Python**
+# TA06 - Climate Data Analysis Project 🌍
+
+
+**Leveraging AI and Meteorological Data for Green Transformation Solutions**
+
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
+![Project Visualization](task_02/charts&graphs/my_plot1.png)
 
 ---
 
@@ -127,7 +134,7 @@ De esta manera, aseguramos la integridad y uniformidad de los datos antes de pro
 
 **task_02/Data_Validation.py**
 
-## Breakdown del script
+### Breakdown del script
 
 Este script se compone de tres funciones principales, cada una con un propósito específico relacionado con la validación de los datos descargados. A continuación, se detalla el propósito y funcionamiento de cada función.
 
@@ -289,7 +296,7 @@ YEAR    Mean                TotalPrecip         PctChange
 2007    1.288659793814433   461.5556701030927   -48.59048673277695
 ```
 
-Breakdown del script:
+### Breakdown del script:
 
 ```python
 
@@ -490,15 +497,16 @@ Este es el bloque de codigo que exporta los datos a JSON.
 ### En la siguiente imagen podemos ver las visualizaciones generadas:
 
 #### Visualizacion 1
-![Visualizaciones](/task_02/charts&graphs/my_plot1.png)
+![Visualizaciones](./task_03/charts&graphs/my_plot1.png)
 
 ---
 #### Visualizacion 2
-![Visualizaciones](/task_02/charts&graphs/my_plot1.png)
+
+![Visualizaciones](./task_03/charts&graphs/my_plot2.png)
 
 ---
 #### Visualizacion 3
-![Visualizaciones](/task_02/charts&graphs/my_plot1.png)
+![Visualizaciones](./task_03/charts&graphs/my_plot3.png)
 
 ---
 
@@ -508,4 +516,34 @@ Para publicar los datos, hemos creado una pagina web con HTML, CSS y JavaScript.
 
 # 5. Reflexion
 
+| Persona             | Què he après?                                                                                      | Nivell |
+|---------------------|---------------------------------------------------------------------------------------------------|--------|
+| **Sharam Khan.**    | **Treball en grup**: he après a explicar les meves idees                                          | 🟠 Força |
+| **Sergio Lopez**    | **Treball en equip**, he après a consensuar la feina a fer                                        | 🟠 Força |
+| **Adriàn Gonzalez** | **HTML i CSS**, per fi he entès com crear una web i publicar-la                                   | 🟢 Molt |
+| **Adrià Manero**    | **Processament de dades**: he après com manipular fitxers molt grans                             | 🔴 Res |
+
+
+
 # 6. Referencias
+
+1. **OpenData AEMET**  
+   Datos extraídos de [OpenData AEMET](https://opendata.aemet.es/), utilizados para analizar la precipitación en España durante el periodo 2006-2100.  
+   Modelo utilizado: Regresión en rejilla, **MIRCO5**, escenario **RCP6.0**.
+
+2. **Librerías y Tecnologías**  
+   - **Python**: Procesamiento y análisis de datos utilizando librerías como `pandas`, `matplotlib` y `numpy`.  
+   - **JavaScript**: Generación de gráficos interactivos mediante la librería [Chart.js](https://www.chartjs.org/).  
+   - **HTML & CSS**: Estructura y diseño del sitio web, con un tema oscuro y tablas responsivas.
+
+3. **Inspiración del Diseño**  
+   - Diseño inspirado en prácticas de visualización de datos modernos y accesibles para un público técnico.  
+
+4. **Documentación Adicional**  
+   - [Documentación de Chart.js](https://www.chartjs.org/docs/latest/) para personalización de gráficos.  
+   - [Markdown Guide](https://www.markdownguide.org/) para la estructura y formato del README.
+   - [Pandas Documentation](https://pandas.pydata.org/docs/) para la manipulación de datos en Python.
+   - [Tutorial Pandas](https://youtu.be/2uvysYbKdjM?si=AWb-gjNjECU1DuXq) para aprender a usar Pandas.
+   - [Github copilot](https://copilot.github.com/) para la generación de código.
+   
+---
